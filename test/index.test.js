@@ -234,6 +234,19 @@ describe('gulp-cheerio tests', function () {
           cheerio.load.restore();
         });
       });
+
+      it('should preserve changed file contents', function() {
+        var run = function ($, file) { file.contents = new Buffer('Something Different'); };
+        var stream = gc(sinon.spy(run));
+
+        sinon.stub(cheerio, 'load').returns($);
+        stream.on('data', dataSpy);
+        stream.write(this.bufferFile);
+
+        this.bufferFile.contents.toString().should.equal('Something Different');
+
+        cheerio.load.restore();
+      });
     })
   });
 });
