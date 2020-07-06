@@ -31,7 +31,6 @@
     "sinon-chai": "~2.4.0"
   },
   "dependencies": {
-    "gulp-util": "~2.2.10",
     "cheerio": "0.*",
     "through2": "^0.6.3"
   }
