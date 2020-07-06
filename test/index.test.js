@@ -1,8 +1,8 @@
 describe('gulp-cheerio tests', function () {
   var gc = require('../'),
       cheerio = require('cheerio'),
-      FakeFile = require('gulp-util').File,
-      Stream = require('stream');
+      FakeFile = require('vinyl'),
+      Stream = require('readable-stream');
 
   beforeEach(function () {
     this.originalContent = 'foo';
